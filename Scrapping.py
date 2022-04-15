@@ -12,8 +12,9 @@ class Titulares():
     def setTitulares(self):
         i=0
         for titulos in self.html.find_all('a',class_="title page-link"):
+            fechahora= self.html.find_all('span',class_="published-at")[i].text.strip()
             titulos=self.html.find_all('a',class_="title page-link")[i].text.strip()
-            self.titulares.append(titulos)
+            self.titulares.append(fechahora+';'+titulos)
             i +=1
     def printTitulares(self):
         for i in range(0,len(self.titulares)):
